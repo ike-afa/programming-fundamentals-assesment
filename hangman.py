@@ -1,14 +1,21 @@
 import random
 
+class Game:
+    def __init__(self, word_file):
+        file = open(word_file,'r')
+        words = file.read().lower().splitlines()
+        file.close()
+        index = random.randint(0, len(words) - 1)
+        self.word = words[index]
+
 def main():
-    file = open('names.txt','r')
-    words = file.read().splitlines()
-    file.close()
+    
+    game = Game('names.txt')
+    
 
-    index = random.randint(0, len(words) - 1)
-    word = words[index]
-
-    print(word)
+    print(game.word)
+    return
+        
 
     guesses=[]
     guess = input("whats your guess? ")
