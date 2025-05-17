@@ -1,0 +1,40 @@
+>>> import maze
+>>> m = maze.newMaze(3, 4)
+>>> m[0]
+[<maze.cell object at 0x1049977c0>, <maze.cell object at 0x1048deaf0>, <maze.cell object at 0x104912610>, <maze.cell object at 0x1049a2b80>]
+>>> m[0][0]
+<maze.cell object at 0x1049977c0>
+>>> m[0][0].row
+0
+>>> m[1][2].row
+1
+>>> m[1][2].col
+2
+>>> 
+
+question 1
+>>> numbers = [[1, 2, 3], [4, 5, 6]]
+>>> numbers[0][0]
+
+question 2
+index into first dimension, then index specifically into second dimension
+make sure to index from 0
+
+
+question 3
+>>> numbers = [[0, 0] for _ in range(6)]
+>>> numbers
+[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+>>> numbers[5]
+[0, 0]
+>>> numbers[5][1]
+0
+
+>>> numbers[5][1]=12
+>>> numbers
+[[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 12]]
+>>> numbers[1][5]=12
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+IndexError: list assignment index out of range
+>>> 
