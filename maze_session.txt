@@ -38,3 +38,36 @@ Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 IndexError: list assignment index out of range
 >>> 
+
+
+Step 3
+ikeafanasiev@MacBookAir assessment_1 % python3 
+Python 3.9.6 (default, Mar 12 2025, 20:22:46) 
+[Clang 17.0.0 (clang-1700.0.13.3)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import maze
+>>> m = maze.newMaze(3,4)
+>>> maze.showMaze(3, 4, m)
++-+-+-+-+
+| | | | |
++-+-+-+-+
+| | | | |
++-+-+-+-+
+| | | | |
++-+-+-+-+
+>>> m[1][2].leftConnected = True
+>>> maze.showMaze(3, 4, m)
++-+-+-+-+
+| | | | |
++-+-+-+-+
+| |   | |
++-+-+-+-+
+| | | | |
++-+-+-+-+
+
+1. put name of the function you are calling then in parenthasis, put all the arguements, one for each parameter
+newMaze(3,4)
+2. an outer  for loop, using a call to the 'range' function, looks through the items in the outer array
+these items are themselves arrays so there is also an inner for loop to look through the items in the inner array
+3. it is the same as with the loops, but a 'for' loop is needed for each dimension
+
