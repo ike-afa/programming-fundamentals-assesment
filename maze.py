@@ -21,6 +21,24 @@ def newMaze(numRows, numCols):
     return maze
 
 
+def showMaze(numRows, numCols, maze):
+    for row in range(0, numRows):
+        topLine = ""
+        cellLine = ""
+        for col in range(0, numCols):
+            if maze[row][col].topConnected:
+                topLine = topLine + "+ "
+            else:
+                topLine = topLine + "+-"
+            if maze[row][col].leftConnected:
+                cellLine = cellLine + "  "
+            else:
+                cellLine = cellLine + "| "
+        
+        print(topLine + "+")
+        print(cellLine + "|")
+    print("+-"*(numCols)+"+")
+
 if __name__ == "__main__":
     c = cell()
     print(c.visited)
