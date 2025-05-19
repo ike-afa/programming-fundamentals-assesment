@@ -1,5 +1,81 @@
 import random
 
+def draw_hangman(incorrect):
+    stages = [
+     """
+        
+        
+        
+        
+    =========
+    """,
+    """
+        
+    |
+    |
+    |
+    |
+    =========
+    """,
+    """
+    +---.
+    |
+    |
+    |
+    |
+    =========
+    """,
+    """
+    +---.
+    |   O
+    |
+    |
+    |
+    =========
+    """,
+    """
+    +---.
+    |   O
+    |   |
+    |
+    |
+    =========
+    """,
+    """
+    +---.
+    |   O
+    |  /|
+    |
+    |
+    =========
+    """,
+    """
+    +---.
+    |   O
+    |  /|\\
+    |
+    |
+    =========
+    """,
+    """
+    +---.
+    |   O
+    |  /|\\
+    |  /
+    |
+    =========
+    """,
+    """
+    +---.
+    |   O
+    |  /|\\
+    |  / \\
+    |
+    =========
+    """
+    ]
+    print(stages[min(incorrect, len(stages)-1)])
+    
 class Game:
     def __init__(self, word_file):
         file = open(word_file,'r')
@@ -10,7 +86,7 @@ class Game:
         self.bad_guesses = set()
         self.attempt_letters = ['_' for c in self.word]
         # temporary debugging
-        print(f"the word is {self.word}")
+        
     
     def play(self):
         while not self.game_over():
@@ -29,13 +105,17 @@ class Game:
            
             print(self.attempt())
             print(f"bad guesses: {self.bad_guesses}")
+            draw_hangman(len(self.bad_guesses))
+
         
         if self.attempt() == self.word:
             print(f"you won")
         else:
             print(f"too many bad guesses")
     
-            
+       
+    
+       
     
     def attempt(self):
         return "".join(self.attempt_letters)
@@ -52,5 +132,9 @@ def main():
 if __name__ == '__main__':
     main()
 
+
+ 
+
+    
 
 
