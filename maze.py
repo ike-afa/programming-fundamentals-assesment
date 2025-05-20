@@ -38,12 +38,3 @@ def showMaze(numRows, numCols, maze):
         print(topLine + "+")
         print(cellLine + "|")
     print("+-"*(numCols)+"+")
-
-if __name__ == "__main__":
-    c = cell()
-    print(c.visited)
-    c.visited = True
-    print(c.visited)
-
-    maze = newMaze(20, 20)
-    
