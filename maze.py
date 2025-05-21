@@ -9,6 +9,24 @@ class cell:
     topConnected=False
     bottomConnected=False
 
+    def connect(self, neighbour):
+        if self.row < neighbour.row:
+            self.bottomConnected = True
+            neighbour.topConnected = True
+        else:
+            self.topConnected = True
+            neighbour.bottomConnected = True
+
+        if self.col < neighbour.col:
+            self.rightConnected = True
+            neighbour.leftConnected = True
+        else:
+            self.leftConnected = True
+            neighbour.rightConnected = True
+
+        self.visited = True
+        neighbour.visited = True
+
     def __repr__(self):
         return f"row = {self.row}, col = {self.col}, leftConnected = {self.leftConnected}, rightConnected = {self.rightConnected}, topConnected = {self.topConnected}, bottomConnected = {self.bottomConnected}"
 
@@ -78,16 +96,33 @@ def unvisitedNeighbour(row, col, rows, cols, maze):
         return None
     else:
         randomIndex = random.randint(0, len(unvisited)-1)
-        return unvisited[randomIndex]      
-           
+        return unvisited[randomIndex]
+    
+def generateMaze(rows, cols):
+    maze = newMaze(rows, cols)
+    cells = rows * cols
+    row = random.randint(0, rows - 1)
+    col = random.randint(0, cols - 1)
+    current = maze[row][col]
+    stack = []
+    numVisited = 0
+    while numVisited < cells:
+        neighbour = unvisitedNeighbour(current.row, current.col, rows, cols, maze)
+        while neighbour == None:
+            if len(stack) == 0:
+                return
+            current = stack.pop()
+            neighbour = unvisitedNeighbour(current.row, current.col, rows, cols, maze)
+        
+        current.connect(neighbour)
+        stack.append(current)
+        current = neighbour
+        numVisited += 1
+
+        showMaze(rows, cols, maze)
+        input("<ENTER> for next connection...")
 
 if __name__ == "__main__":
-    rows = 4
-    cols = 5
-    maze = newMaze(rows, cols)
-    showMaze(rows, cols, maze)
-    row = 0
-    col = 0
-    n = unvisitedNeighbour(row, col, rows, cols, maze)
-    print(n)
-    
+    rows = 10
+    cols = 10
+    generateMaze(rows, cols)
