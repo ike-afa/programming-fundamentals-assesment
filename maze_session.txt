@@ -136,3 +136,15 @@ question 1:
 this assigns the value `maze[row][col]` to the variable `current`
 question 2:
 this sets the visited property of the cell to `True`
+
+section 7:
+
+1.
+The algorithim picks a random unvisited cell, then chooses a random unvisited neighbour of the cell. 
+It then connects the two cells and keeps doing this around the maze until it reaches a point with no unvisited neighbours.
+It then backtracks until it can find uvisited neighbours.
+The algorithim reapeats this process until there are no unvisited neighbours.
+
+2.
+The stack data structure is a LIFO data structure, this is used so that the algorithim backtracks from the most recent cell, which is the current cell.
+
