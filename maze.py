@@ -1,7 +1,6 @@
 import random
 
 class cell:
-
     row=None
     col=None
     visited=False
@@ -9,6 +8,9 @@ class cell:
     rightConnected=False
     topConnected=False
     bottomConnected=False
+
+    def __repr__(self):
+        return f"row = {self.row}, col = {self.col}, leftConnected = {self.leftConnected}, rightConnected = {self.rightConnected}, topConnected = {self.topConnected}, bottomConnected = {self.bottomConnected}"
 
 def newMaze(numRows, numCols):
     maze = []
