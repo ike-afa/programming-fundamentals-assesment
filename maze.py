@@ -56,8 +56,8 @@ def findNeighbours(row, col, rows, cols, maze):
            if col + j < 0 or col + j >= cols:
                continue
            
-           if i == 0 and j == 0:
-               # skip target cell
+           # skip target cell and diagonals
+           if (i + j) == 0 or j == i:
                continue
 
            neighbour = maze[row+i][col+j]
