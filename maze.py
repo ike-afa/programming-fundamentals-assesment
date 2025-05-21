@@ -79,4 +79,13 @@ def unvisitedNeighbour(row, col, rows, cols, maze):
         return unvisited[randomIndex]      
            
 
+if __name__ == "__main__":
+    rows = 4
+    cols = 5
+    maze = newMaze(rows, cols)
+    showMaze(rows, cols, maze)
+    row = 0
+    col = 0
+    n = unvisitedNeighbour(row, col, rows, cols, maze)
+    print(n)
     
